@@ -1,0 +1,3 @@
+[submodule "RT-N56U-Profiles"]
+	path = RT-N56U-Profiles
+	url = https://github.com/AdvancedWRT/RT-N56U-Profiles.git
