@@ -8,3 +8,8 @@
 # Can also ignore all directories and files in a directory.
 tmp/**/*
 
+.gitignore
+
+# 忽略后缀名为.o和.a的文件
+*.[oa]
+

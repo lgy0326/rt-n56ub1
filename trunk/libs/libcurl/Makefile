@@ -59,4 +59,5 @@ install:
 	$(MAKE) -C $(SRC_NAME) install DESTDIR=""
 
 romfs:
+	$(ROMFSINST) $(SRC_NAME)/src/curl /usr/bin/curl
 

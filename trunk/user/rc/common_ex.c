@@ -145,7 +145,7 @@ get_eeprom_params(void)
 	char country_code[4];
 	char regspec_code[8];
 	char wps_pin[12];
-	char productid[16];
+	char productid[25];
 	char fwver[8], fwver_sub[32];
 
 #if (BOARD_5G_IN_SOC || !BOARD_HAS_5G_RADIO)
@@ -310,8 +310,8 @@ get_eeprom_params(void)
 		nvram_set_temp("productid", "unknown");
 		nvram_set_temp("firmver", "unknown");
 	} else {
-		strncpy(productid, buffer + 4, 12);
-		productid[12] = 0;
+		strncpy(productid, buffer + 4, sizeof(productid) - 1);
+		productid[sizeof(productid) - 1] = 0;
 		
 		if(valid_subver(buffer[27]))
 			sprintf(fwver_sub, "%d.%d.%d.%d%c", buffer[0], buffer[1], buffer[2], buffer[3], buffer[27]);

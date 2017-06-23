@@ -48,7 +48,8 @@ logger -t "ngrok" "已停止ngrok"
 exit 0
 fi
 
-export LD_LIBRARY_PATH="/lib:/usr/share/bkye"
+OLD_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH="/lib:/usr/share/bkye:/opt/lib:/usr/share:${LD_LIBRARY_PATH}"
 if [ "$ngrokenable" = "1" ] ; then
 #第一条协议
 check=$(ps | grep "ngrokc" | grep -v "grep" | wc -l)

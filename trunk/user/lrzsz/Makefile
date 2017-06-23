@@ -33,4 +33,6 @@ clean:
 romfs:
 	$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/src/lrz /usr/bin/lrz
 	$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/src/lsz /usr/bin/lsz
+	$(ROMFSINST) -s /usr/bin/lsz /usr/bin/sz
+	$(ROMFSINST) -s /usr/bin/lrz /usr/bin/rz
 

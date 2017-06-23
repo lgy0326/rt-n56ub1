@@ -35,7 +35,8 @@ if [ ! -x "$xunleidir/xunlei/portal" ]; then
 fi
 
 codeline=""
-export LD_LIBRARY_PATH="$xunleidir/xunlei/lib:/lib:/opt/lib:/usr/share/bkye"
+OLD_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH="$xunleidir/xunlei/lib:/lib:/opt/lib:/usr/share/bkye:/usr/share:${LD_LIBRARY_PATH}"
 while [ -z "$codeline" ]
 do
 	logger -t "远程迅雷下载" "启动中..."
@@ -51,7 +52,8 @@ do
 done
 code=`expr "$codeline" : '[^\:]*: \([^.]*\)'`
 nvram set xunlei_sn="$code"
-export LD_LIBRARY_PATH=/lib:/opt/lib
+#export LD_LIBRARY_PATH=/lib:/opt/lib
+export LD_LIBRARY_PATH=${OLD_LD_LIBRARY_PATH}
 sed -i '/xunlei/d' /etc/storage/post_wan_script.sh
 cat >> /etc/storage/post_wan_script.sh << EOF
 /usr/bin/xunlei.sh&
