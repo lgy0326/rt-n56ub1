@@ -85,6 +85,10 @@ static int btn_count_fn1 = 0;
 #if defined (BOARD_GPIO_BTN_FN2)
 static int btn_count_fn2 = 0;
 #endif
+#if defined (BOARD_GPIO_BTN_WLTOG)
+static int btn_count_wlt = 0;
+#endif
+
 
 
 static void
@@ -225,6 +229,11 @@ btn_check_reset(void)
 #if defined (BOARD_GPIO_BTN_FN2)
 	/* check FN2 pressed */
 	if (btn_count_fn2 > 0)
+		return 0;
+#endif
+#if defined (BOARD_GPIO_BTN_WLTOG)
+	/* check WLTOG pressed */
+	if (btn_count_wlt > 0)
 		return 0;
 #endif
 	if (cpu_gpio_get_pin(BOARD_GPIO_BTN_RESET, &i_button_value) < 0)
@@ -768,6 +777,12 @@ ez_event_short(int btn_id)
 		ez_param = 5;
 	} else
 #endif
+#if defined (BOARD_GPIO_BTN_WLTOG)
+	if (btn_id == 1) {
+		ez_action = nvram_get_int("wlt_action_short");
+		ez_param = 4;
+	} else
+#endif
 		ez_action = nvram_get_int("ez_action_short");
 
 #if defined (BOARD_GPIO_LED_POWER)
@@ -1204,6 +1219,9 @@ watchdog_main(int argc, char *argv[])
 #endif
 #if defined (BOARD_GPIO_BTN_FN2)
 	cpu_gpio_irq_set(BOARD_GPIO_BTN_FN2, 0, 1, pid);
+#endif
+#if defined (BOARD_GPIO_BTN_WLTOG)
+	cpu_gpio_irq_set(BOARD_GPIO_BTN_WLTOG, 0, 1, pid);
 #endif
 #if defined (BOARD_GPIO_BTN_RESET)
 	cpu_gpio_irq_set(BOARD_GPIO_BTN_RESET, 0, 1, pid);

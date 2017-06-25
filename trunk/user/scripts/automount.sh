@@ -28,18 +28,19 @@ eval `/sbin/blkid -o udev $dev_full`
 
 if [ "$ID_FS_TYPE" == "swap" ] ; then
 	[ ! -x /sbin/swapon ] && exit 1
-	swap_used=`cat /proc/swaps | grep '^/dev/' | grep 'partition' 2>/dev/null`
+	swap_used=`cat /proc/swaps | grep '^/dev/sd[a-z]' | grep 'partition' 2>/dev/null`
 	if [ -z "$swap_used" ] ; then
 		swapon $dev_full
 		if [ $? -eq 0 ] ; then
+			nvram set swap_part_t=$1
 			logger -t "automount" "Activate swap partition $dev_full SUCCESS!"
 		fi
 	fi
-
+	
 	# always return !=0 for swap
 	exit 1
 fi
-
+logger -t "automount" "mount  device $dev_full ($ID_FS_TYPE) to $dev_mount!!!!!"
 dev_label=`echo "$ID_FS_LABEL" | tr -d '\/:*?"<>|~$^' | sed 's/ /_/g'`
 [ "$dev_label" == "NO_NAME" ] && dev_label=""
 
@@ -77,14 +78,14 @@ if [ "$ID_FS_TYPE" == "msdos" -o "$ID_FS_TYPE" == "vfat" ] ; then
 	kernel_vfat=`modprobe -l | grep vfat`
 	if [ -n "$kernel_vfat" ] ; then
 		func_load_module vfat
-		mount -t vfat "$dev_full" "$dev_mount" -o noatime,umask=0,shortname=winnt
+		mount -t vfat "$dev_full" "$dev_mount" -o noatime,umask=0,iocharset=utf8,codepage=936,shortname=winnt
 	else
 		func_load_module exfat
-		mount -t exfat "$dev_full" "$dev_mount" -o noatime,umask=0
+		mount -t exfat "$dev_full" "$dev_mount" -o noatime,umask=0,iocharset=utf8
 	fi
 elif [ "$ID_FS_TYPE" == "exfat" ] ; then
 	func_load_module exfat
-	mount -t exfat "$dev_full" "$dev_mount" -o noatime,umask=0
+	mount -t exfat "$dev_full" "$dev_mount" -o noatime,umask=0,iocharset=utf8
 elif [ "$ID_FS_TYPE" == "ntfs" ] ; then
 	if [ "$achk_enable" != "0" ] && [ -x /sbin/chkntfs ] ; then
 		/sbin/chkntfs -a -f --verbose "$dev_full" > "/tmp/chkntfs_result_$1" 2>&1
