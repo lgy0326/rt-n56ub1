@@ -83,7 +83,7 @@ static int
 check_header_image(const char *buf, long *file_len)
 {
 	int pid_asus_len;
-	char pid_asus[16];
+	char pid_asus[32];
 	image_header_t *hdr = (image_header_t *)buf;
 
 	/* check header magic */
@@ -93,8 +93,8 @@ check_header_image(const char *buf, long *file_len)
 	}
 
 	pid_asus_len = strlen(BOARD_PID);
-	if (pid_asus_len > 12)
-		pid_asus_len = 12;
+	if (pid_asus_len > sizeof(pid_asus))
+		pid_asus_len = sizeof(pid_asus);
 
 	strncpy(pid_asus, buf+36, pid_asus_len);
 	pid_asus[pid_asus_len] = 0;
