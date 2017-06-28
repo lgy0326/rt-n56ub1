@@ -148,7 +148,7 @@
  * all data in network byte order (aka natural aka bigendian)
  */
 
-#define MAX_STRING 32
+#define MAX_STRING 12
 #define MAX_VER 4
 
 typedef struct {

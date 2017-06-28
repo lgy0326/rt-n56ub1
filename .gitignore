@@ -1092,7 +1092,14 @@ trunk/user/firefly/mt-daapd-svn/contrib/Makefile
 trunk/user/firefly/mt-daapd-svn/contrib/init.d/Makefile
 trunk/user/ipset/ipset-6.x/m4/libtool.m4
 trunk/user/openssh/openssh-7.x/libssh.so
+trunk/user/iptables/iptables-1.4.16.3/extensions/libxt_conntrack.c
+trunk/user/iptables/iptables-1.4.16.3/extensions/libxt_conntrack.man
+trunk/user/iptables/iptables-1.4.16.3/extensions/libxt_physdev.c
+trunk/user/iptables/iptables-1.4.16.3/extensions/libxt_physdev.man
 
 trunk/linux-3.4.x/drivers/net/wireless/ralink/rt3090/
+trunk/linux-3.4.x/drivers/net/wireless/ralink/mt76x2/
+trunk/linux-3.4.x/drivers/net/wireless/ralink/mt76x3_ap/Makefile
+
 
 

@@ -99,7 +99,7 @@ check_header_image(const char *buf, long *file_len)
 	strncpy(pid_asus, buf+36, pid_asus_len);
 	pid_asus[pid_asus_len] = 0;
 
-	if (strcmp(pid_asus, BOARD_PID) != 0) {
+	if (strncmp(pid_asus, BOARD_PID, strlen(pid_asus) < pid_asus_len ? strlen(pid_asus) : pid_asus_len) != 0) {
 		httpd_log("%s: Incorrect image ProductID: %s! Expected is %s.", "Firmware update", pid_asus, BOARD_PID);
 		return -2;
 	}
