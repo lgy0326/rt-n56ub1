@@ -31,8 +31,8 @@ configure:
 		--enable-asus \
 		--enable-tivo \
 		--with-libiconv-prefix=$(STAGEDIR) \
-		--with-log-path=/mnt/minidlna \
-		--with-db-path=/mnt/minidlna \
+		--with-log-path=/tmp/minidlna \
+		--with-db-path=/tmp/minidlna \
 		--with-os-name="Linux" \
 		--with-os-version="Linux/Cross_compiled" \
 		--with-os-url="http://www.kernel.org/" \

@@ -132,7 +132,7 @@ struct nvram_pair router_defaults[] = {
 	{ "http_username", SYS_USER_ROOT },	/* Username */
 	{ "http_passwd", DEF_ROOT_PASSWORD },	/* Password */
 	{ "http_access", "0" },			/* HTTP access (0: ALL, 1: LAN only, 2: LAN + Wireless MainAP) */
-	{ "http_proto", "0" },			/* HTTP proto (0: HTTP, 1: HTTPS, 2: Both) */
+	{ "http_proto", "2" },			/* HTTP proto (0: HTTP, 1: HTTPS, 2: Both) */
 	{ "http_lanport", "80" },		/* HTTP LAN port to listen on */
 	{ "https_lport", "443" },		/* HTTPS LAN port to listen on */
 	{ "https_clist", DEF_HTTPS_CIPH_LIST },	/* HTTPS SSL cipher list */
@@ -661,7 +661,7 @@ struct nvram_pair router_defaults[] = {
 	{ "fn2_action_short", "0" },
 	{ "fn2_action_long", "0" },
 #endif
-	{ "watchdog_cpu", "0" },
+	{ "watchdog_cpu", "1" },
 	{ "front_led_all", "1" },
 	{ "front_led_wan", "2" },
 	{ "front_led_lan", "1" },
