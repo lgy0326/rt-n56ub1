@@ -36,6 +36,7 @@ trunk/configs/boards/RT-N56U_BR100/
 trunk/configs/boards/RT-N56U_D1/
 trunk/configs/boards/RT-N56U_HC5661A/
 trunk/configs/boards/RT-N56U_K2/
+trunk/configs/boards/RT-N56U_K2_64M/
 trunk/configs/boards/RT-N56U_K2_128M/
 trunk/configs/boards/RT-N56U_K2_256M/
 trunk/configs/boards/RT-N56U_L1/

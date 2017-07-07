@@ -6,7 +6,7 @@ ROMFS_DIR = $(ROOTDIR)/romfs
 
 include $(ROOTDIR)/user/shared/boards.mk
 
-PROJECT_HOME_URL="https:\/\/bitbucket.org\/padavan\/rt-n56u\/"
+PROJECT_HOME_URL="http:\/\/www.right.com.cn\/forum\/thread-220497-1-1.html"
 LABEL_COPYRIGHT_TEXT="© 2011-2016 Padavan \& N56U project community"
 
 BOARD_PATTERN=s/ZVMODELVZ/$(CONFIG_FIRMWARE_PRODUCT_ID)/g
