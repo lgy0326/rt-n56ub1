@@ -164,6 +164,30 @@ ifneq ($(STORAGE_ENABLED),y)
 	rm -rf $(INSTALLDIR)/www/images/AiDisk
 	rm -rf $(INSTALLDIR)/www/images/Tree
 endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_XUNLEI),y)
+	rm -f $(INSTALLDIR)/www/Advanced_xunlei.asp
+	sed "s/Advanced_xunlei.asp//g" -i $(ROMFS_DIR)/www/state.js
+endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_ADBYBY),y)
+	rm -f $(INSTALLDIR)/www/Advanced_adbyby.asp
+	sed "s/Advanced_adbyby.asp//g" -i $(ROMFS_DIR)/www/state.js
+endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_KMS),y)
+	rm -f $(INSTALLDIR)/www/Advanced_kms.asp
+	sed "s/Advanced_kms.asp//g" -i $(ROMFS_DIR)/www/state.js
+endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL),y)
+	rm -f $(INSTALLDIR)/www/aria.asp
+	sed "s/aria.asp//g" -i $(ROMFS_DIR)/www/state.js
+endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL),y)
+	rm -f $(INSTALLDIR)/www/trmd.asp
+	sed "s/trmd.asp//g" -i $(ROMFS_DIR)/www/state.js
+endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_NGROK),y)
+	rm -f $(INSTALLDIR)/www/ngrok.asp
+	sed "s/ngrok.asp//g" -i $(ROMFS_DIR)/www/state.js
+endif
 
 clean:
 	@echo "Clean www romfs"
