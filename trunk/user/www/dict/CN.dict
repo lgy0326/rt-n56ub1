@@ -78,6 +78,7 @@ Adm_System_trmd_ropen=允许外网访问 Transmission
 Adm_System_udpxy_wopen=允许外网访问 UDP-HTTP 代理
 Adm_System_udpxy_wport=外网 UDP-HTTP 代理端口 (udpxy):
 Adm_System_webs=HTTP Web 服务
+Advanced_Not_Support=功能暂不支持
 AiDisk_Account=账号
 AiDisk_linktoFTP_fromInternet=FTP 地址:
 AiDisk_moreconfig=若您需要更专业的文件共享设置，例如多组共享权限的规划，共享文件夹的修改，请至[高级文件共享配置]里设置。

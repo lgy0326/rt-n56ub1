@@ -166,27 +166,27 @@ ifneq ($(STORAGE_ENABLED),y)
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_XUNLEI),y)
 	rm -f $(INSTALLDIR)/www/Advanced_xunlei.asp
-	sed "s/Advanced_xunlei.asp//g" -i $(ROMFS_DIR)/www/state.js
+	sed "s/Advanced_xunlei.asp/Advanced_Not_Support.asp/g" -i $(ROMFS_DIR)/www/state.js
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_ADBYBY),y)
 	rm -f $(INSTALLDIR)/www/Advanced_adbyby.asp
-	sed "s/Advanced_adbyby.asp//g" -i $(ROMFS_DIR)/www/state.js
+	sed "s/Advanced_adbyby.asp/Advanced_Not_Support.asp/g" -i $(ROMFS_DIR)/www/state.js
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_KMS),y)
 	rm -f $(INSTALLDIR)/www/Advanced_kms.asp
-	sed "s/Advanced_kms.asp//g" -i $(ROMFS_DIR)/www/state.js
+	sed "s/Advanced_kms.asp/Advanced_Not_Support.asp/g" -i $(ROMFS_DIR)/www/state.js
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL),y)
 	rm -f $(INSTALLDIR)/www/aria.asp
-	sed "s/aria.asp//g" -i $(ROMFS_DIR)/www/state.js
+	sed "s/aria.asp/Advanced_Not_Support.asp/g" -i $(ROMFS_DIR)/www/state.js
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL),y)
 	rm -f $(INSTALLDIR)/www/trmd.asp
-	sed "s/trmd.asp//g" -i $(ROMFS_DIR)/www/state.js
+	sed "s/trmd.asp/Advanced_Not_Support.asp/g" -i $(ROMFS_DIR)/www/state.js
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_NGROK),y)
 	rm -f $(INSTALLDIR)/www/ngrok.asp
-	sed "s/ngrok.asp//g" -i $(ROMFS_DIR)/www/state.js
+	sed "s/ngrok.asp/Advanced_Not_Support.asp/g" -i $(ROMFS_DIR)/www/state.js
 endif
 
 clean:
