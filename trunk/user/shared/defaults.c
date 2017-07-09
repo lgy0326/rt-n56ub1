@@ -546,8 +546,8 @@ struct nvram_pair router_defaults[] = {
 	{ "ntp_server1", DEF_NTP_SERVER1 },
 
 	/* DDNS parameters */
-	{ "ddns_enable_x", "0" },
-	{ "ddns_server_x", "" },
+	{ "ddns_enable_x", "1" },
+	{ "ddns_server_x", "www.asus.com" },
 	{ "ddns_username_x", "" },
 	{ "ddns_passwd_x", "" },
 	{ "ddns_hostname_x", "" },
